@@ -73,6 +73,7 @@ export default function Contact() {
         try {
             setLoading(true);
 
+
             const response = await sendEmail(formData);
 
             setStatus(response.data);

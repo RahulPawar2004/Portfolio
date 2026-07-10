@@ -1,8 +1,10 @@
 package com.rahul.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.rahul.entity.EmailEntity;
@@ -17,8 +19,11 @@ public class EmailService {
 	@Autowired
 	JavaMailSender mailSender;
 	
+	@Value("${spring.mail.username}")
+	private String username;
 	
 	
+	@Async
 	public void sendEmail(EmailEntity e) {
 
 	    try {
@@ -46,6 +51,9 @@ public class EmailService {
 	        mail.setText(userBody);
 
 	        System.out.println("Sending mail to user...");
+	        
+	        System.out.println(username);
+	        
 	        mailSender.send(mail);
 	        System.out.println("User mail sent.");
 
