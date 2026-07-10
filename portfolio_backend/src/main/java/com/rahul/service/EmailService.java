@@ -20,46 +20,61 @@ public class EmailService {
 	
 	
 	public void sendEmail(EmailEntity e) {
-		
-		String name = e.getName();
-		String email = e.getEmail();
-		String message = e.getMessage();
-		
-        String info= 
-        		 "Name: "+e.getName()+"\n"+
-                 "Email: "+e.getEmail()+"\n"+
-                 "Subject: "+e.getSubject()+"\n\n"+
-                 "Message: "+e.getMessage();
-				
-		String userBody =
-                "Hello " +name + ",\n\n" +
-                "Thank you for contacting me.\n" +
-                "I have received your message and will get back to you soon.\n\n" +
-                "Regards,\n" +
-                "Rahul Pawar";
-	            
-	    SimpleMailMessage mail = new SimpleMailMessage();
-	    SimpleMailMessage mail2 = new SimpleMailMessage();
-	    
-	    mail.setTo(email);
-	    mail.setSubject("Thank You for Contacting Rahul Pawar");
-	    mail.setText(userBody);
-	    
-	    mail2.setTo("rahulpawar0r@gmail.com");
-	    mail2.setSubject("New Portfolio Contact Form Submission");
-	    mail2.setText(info);
-	    
-	    mailSender.send(mail);
-	    mailSender.send(mail2);
-	    
-	    
-	    e.setEmail(email);
-	    e.setMessage(message);
-	    e.setName(name);
-	    
-	    repo.save(e);
+
+	    try {
+
+	        System.out.println("Inside EmailService");
+
+	        String info =
+	                "Name: " + e.getName() + "\n" +
+	                "Email: " + e.getEmail() + "\n" +
+	                "Subject: " + e.getSubject() + "\n\n" +
+	                "Message: " + e.getMessage();
+
+	        String userBody =
+	                "Hello " + e.getName() + ",\n\n" +
+	                "Thank you for contacting me.\n" +
+	                "I have received your message.\n\n" +
+	                "Regards,\nRahul Pawar";
+
+	        SimpleMailMessage mail = new SimpleMailMessage();
+	        
+	        mail.setFrom("rahulpawar0r@gmail.com");
+	        
+	        mail.setTo(e.getEmail());
+	        mail.setSubject("Thank You for Contacting Rahul Pawar");
+	        mail.setText(userBody);
+
+	        System.out.println("Sending mail to user...");
+	        mailSender.send(mail);
+	        System.out.println("User mail sent.");
+
+	        SimpleMailMessage adminMail = new SimpleMailMessage();
+	        adminMail.setFrom("rahulpawar0r@gmail.com");
+	        adminMail.setTo("rahulpawar0r@gmail.com");
+	        adminMail.setSubject("New Portfolio Contact Form Submission");
+	        adminMail.setText(info);
+
+	        System.out.println("Sending admin mail...");
+	        mailSender.send(adminMail);
+	        System.out.println("Admin mail sent.");
+
+	        repo.save(e);
+
+	        System.out.println("Saved in database.");
+
+	    }
+	    catch (Exception ex) {
+
+	        ex.printStackTrace();
+
+	        throw new RuntimeException(ex);
+
+	    }
+
+	}
 	    
 		
 	}
 
-}
+

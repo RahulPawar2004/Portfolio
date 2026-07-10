@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rahul.entity.EmailEntity;
 import com.rahul.service.EmailService;
 
+
+
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 public class EmailController {
 	
 	@Autowired
@@ -28,5 +30,7 @@ public class EmailController {
 		
 	     return ResponseEntity.ok("mail send sucessfully");
 	}
+	
+	
 
 }

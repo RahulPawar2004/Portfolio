@@ -91,9 +91,7 @@ export default function Contact() {
 
             console.log(error.response?.data);
 
-            setStatus(
-                error.response?.data || error.message
-            );
+            setStatus(JSON.stringify(error.response?.data));
         } finally {
             setLoading(false);
         }
