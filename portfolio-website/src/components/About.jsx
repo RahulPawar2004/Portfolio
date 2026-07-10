@@ -61,7 +61,7 @@ const About = () => {
 
     const downloadResume = () => {
         console.log("buttton click")
-        window.open("http://localhost:8080/resume/download", "_blank");
+        window.open("https://rahul-portfolio-backend-j1ap.onrender.com/resume/download", "_blank");
     };
 
 

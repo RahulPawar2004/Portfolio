@@ -84,9 +84,16 @@ export default function Contact() {
                 message: "",
             });
         } catch (error) {
-            console.error(error);
 
-            setStatus("Failed to send email.");
+            console.log(error);
+
+            console.log(error.response);
+
+            console.log(error.response?.data);
+
+            setStatus(
+                error.response?.data || error.message
+            );
         } finally {
             setLoading(false);
         }
