@@ -1,7 +1,6 @@
 package com.rahul.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,8 +21,7 @@ public class EmailController {
 	@Autowired
 	EmailService service;
 	
-	@Value("${spring.mail.username}")
-	private String username;
+	
 	
 	@PostMapping("/sendmail")
 	public ResponseEntity<String> sendEmail(@RequestBody EmailEntity mail) {

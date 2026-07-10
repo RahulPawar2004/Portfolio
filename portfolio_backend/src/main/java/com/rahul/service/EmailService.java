@@ -23,7 +23,6 @@ public class EmailService {
 	private String username;
 	
 	
-	@Async
 	public void sendEmail(EmailEntity e) {
 
 	    try {
@@ -44,7 +43,7 @@ public class EmailService {
 
 	        SimpleMailMessage mail = new SimpleMailMessage();
 	        
-	        mail.setFrom("rahulpawar0r@gmail.com");
+	        mail.setFrom(username);
 	        
 	        mail.setTo(e.getEmail());
 	        mail.setSubject("Thank You for Contacting Rahul Pawar");
@@ -58,8 +57,8 @@ public class EmailService {
 	        System.out.println("User mail sent.");
 
 	        SimpleMailMessage adminMail = new SimpleMailMessage();
-	        adminMail.setFrom("rahulpawar0r@gmail.com");
-	        adminMail.setTo("rahulpawar0r@gmail.com");
+	        adminMail.setFrom(username);
+	        adminMail.setTo(username);
 	        adminMail.setSubject("New Portfolio Contact Form Submission");
 	        adminMail.setText(info);
 
