@@ -1,6 +1,6 @@
 const Navbar = () => {
     const viewResume = () => {
-        window.open("https://rahul-portfolio-backend-j1ap.onrender.com/resume/view", "_blank");
+        window.open(import.meta.env.VITE_API_URL + "/resume/view", "_blank");
     };
     return (
         <nav className="fixed top-5 left-0 w-full z-50 px-6">

@@ -60,8 +60,7 @@ const stats = [
 const About = () => {
 
     const downloadResume = () => {
-        console.log("buttton click")
-        window.open("https://rahul-portfolio-backend-j1ap.onrender.com/resume/download", "_blank");
+        window.open(import.meta.env.VITE_API_URL + "/resume/download", "_blank");
     };
 
 
