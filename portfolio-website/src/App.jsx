@@ -33,7 +33,7 @@ function App() {
       {/* ================= Website ================= */}
       <Navbar />
 
-      <main className="max-w-7xl mx-auto px-6">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <section id="home"><Hero /></section>
         <section id="about"><About /></section>
         <section id="skills"><Skills /></section>

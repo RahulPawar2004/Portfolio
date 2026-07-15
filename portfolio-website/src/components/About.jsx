@@ -60,7 +60,10 @@ const stats = [
 const About = () => {
 
     const downloadResume = () => {
-        window.open(import.meta.env.VITE_API_URL + "/resume/download", "_blank");
+        const link = document.createElement("a");
+        link.href = "/R_Resume.pdf";
+        link.download = "Rahul_Pawar_Resume.pdf";
+        link.click();
     };
 
 
@@ -105,7 +108,10 @@ const About = () => {
 
                     </span>
 
-                    <h2 className="text-5xl md:text-6xl font-bold mt-4">
+                    <h2 className="text-2xl
+                    sm:text-3xl
+                    md:text-4xl
+                    lg:text-5xl font-bold mt-4">
 
                         About <span className="text-blue-400">Me</span>
 
@@ -123,7 +129,10 @@ const About = () => {
 
                 {/* About Grid */}
 
-                <div className="grid lg:grid-cols-2 gap-20 items-center">
+                <div className="grid grid-cols-1
+                lg:grid-cols-2
+                gap-12
+                lg:gap-20 items-center">
 
                     {/* Left Side */}
 
@@ -150,7 +159,9 @@ const About = () => {
                             border-white/10
                             bg-white/[0.04]
                             backdrop-blur-xl
-                            p-10
+                            p-6
+                            sm:p-8
+                            lg:p-10
                             shadow-[0_0_40px_rgba(59,130,246,.15)]
                             "
                         >
@@ -172,8 +183,10 @@ const About = () => {
 
                                         className="
                                         relative
-                                        w-64
-                                        h-64
+                                        w-40 h-40
+                                        sm:w-52 sm:h-52
+                                        md:w-60 md:h-60
+                                        lg:w-64 lg:h-64
                                         object-contain
                                         rounded-full
                                         border-4
@@ -187,7 +200,9 @@ const About = () => {
 
                             </div>
 
-                            <h3 className="text-center text-4xl font-bold mt-8">
+                            <h3 className="text-center text-2xl
+                            sm:text-3xl
+                            lg:text-4xl font-bold mt-8">
 
                                 Rahul Pawar
 
@@ -284,19 +299,24 @@ const About = () => {
                             MY INTRODUCTION
                         </p>
 
-                        <h2 className="text-5xl md:text-6xl font-bold leading-tight">
+                        <h2 className="text-xl
+sm:text-2xl
+md:text-3xl
+lg:text-4xl font-bold leading-tight">
                             Building Reliable &
                             <span className="text-blue-400"> Scalable Backend Solutions</span>
                         </h2>
 
-                        <p className="text-gray-400 leading-8 mt-8 text-lg">
+                        <p className="text-gray-400 leading-8 mt-8 text-base
+sm:text-lg">
                             I'm <span className="text-white font-semibold">Rahul Pawar</span>,
                             a passionate <span className="text-blue-400">Java Backend Developer</span>
                             focused on creating scalable, secure and high-performance web
                             applications using modern Java technologies.
                         </p>
 
-                        <p className="text-gray-400 leading-8 mt-6 text-lg">
+                        <p className="text-gray-400 leading-8 mt-6 text-base
+sm:text-lg">
                             My expertise includes Java, Spring Boot, Hibernate, JPA,
                             PostgreSQL and REST API development.
                             I enjoy solving real-world business problems through clean
@@ -336,7 +356,9 @@ const About = () => {
                     border-white/10
                     rounded-2xl
                     backdrop-blur-xl
-                    p-7
+                    p-3
+sm:p-4
+lg:p-5
                     text-center
                     hover:border-blue-500
                     hover:shadow-[0_0_35px_rgba(59,130,246,.25)]
@@ -397,7 +419,10 @@ const About = () => {
 
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid
+                    grid-cols-1
+                    sm:grid-cols-2
+                    lg:grid-cols-4 gap-8">
 
                         {expertise.map((item, index) => (
 
@@ -428,7 +453,9 @@ const About = () => {
                 border-white/10
                 bg-white/[0.04]
                 backdrop-blur-xl
-                p-8
+                p-4
+                sm:p-5
+                lg:p-6
                 group
                 transition-all
                 duration-500

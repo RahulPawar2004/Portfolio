@@ -1,36 +1,137 @@
-const Navbar = () => {
-    const viewResume = () => {
-        window.open(import.meta.env.VITE_API_URL + "/resume/view", "_blank");
-    };
-    return (
-        <nav className="fixed top-5 left-0 w-full z-50 px-6">
-            <div className="max-w-7xl mx-auto px-8 py-5 rounded-2xl bg-white/3 backdrop-blur-xl border border-white/10">
-                <div className="flex justify-between items-center">
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-                    <h1 className="text-3xl font-bold">
+const Navbar = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const viewResume = () => {
+        window.open("/R_Resume.pdf", "_blank");
+    };
+
+    return (
+        <nav className="fixed top-4 left-0 w-full z-50 px-4 sm:px-6 lg:px-8">
+
+            <div className="max-w-7xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
+
+                <div className="flex items-center justify-between px-6 py-4">
+
+                    {/* Logo */}
+
+                    <h1 className="text-2xl md:text-3xl font-bold">
                         Rahul.
-                        <span className="bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                             Pawar
                         </span>
                     </h1>
 
-                    <ul className="hidden md:flex gap-10 text-gray-300 font-medium">
-                        <a href="#home"><li className="hover:text-blue-400 cursor-pointer">Home</li></a>
-                        <a href="#about"><li className="hover:text-blue-400 cursor-pointer">About</li></a>
-                        <a href="#skills"><li className="hover:text-blue-400 cursor-pointer">Skills</li></a>
-                        <a href="#project"><li className="hover:text-blue-400 cursor-pointer">Projects</li></a>
-                        <a href="#contact"><li className="hover:text-blue-400 cursor-pointer">Contact</li></a>
+                    {/* Desktop Menu */}
 
+                    <ul className="hidden lg:flex gap-10 text-gray-300 font-medium">
+                        <li><a href="#home" className="hover:text-blue-400">Home</a></li>
+                        <li><a href="#about" className="hover:text-blue-400">About</a></li>
+                        <li><a href="#skills" className="hover:text-blue-400">Skills</a></li>
+                        <li><a href="#project" className="hover:text-blue-400">Projects</a></li>
+                        <li><a href="#contact" className="hover:text-blue-400">Contact</a></li>
                     </ul>
+
+                    {/* Desktop Resume Button */}
 
                     <button
                         onClick={viewResume}
-                        className="px-5 py-2 rounded-xl border border-purple-500 text-white hover:scale-105 transition cursor-pointer">
+                        className="hidden lg:block px-5 py-2 rounded-xl border border-purple-500 hover:bg-purple-500 transition"
+                    >
                         Resume
                     </button>
 
+                    {/* Mobile Menu Button */}
+
+                    <button
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        className="lg:hidden text-2xl"
+                    >
+                        {menuOpen ? <FaTimes /> : <FaBars />}
+                    </button>
+
                 </div>
+
+                {/* Mobile Menu */}
+
+                {menuOpen && (
+
+                    <div className="lg:hidden border-t border-white/10">
+
+                        <ul className="flex flex-col text-center py-4 space-y-5">
+
+                            <li>
+                                <a
+                                    href="#home"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="hover:text-blue-400"
+                                >
+                                    Home
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="#about"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="hover:text-blue-400"
+                                >
+                                    About
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="#skills"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="hover:text-blue-400"
+                                >
+                                    Skills
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="#project"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="hover:text-blue-400"
+                                >
+                                    Projects
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    href="#contact"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="hover:text-blue-400"
+                                >
+                                    Contact
+                                </a>
+                            </li>
+
+                            <li>
+                                <button
+                                    onClick={() => {
+                                        viewResume();
+                                        setMenuOpen(false);
+                                    }}
+                                    className="px-5 py-2 rounded-xl border border-purple-500 hover:bg-purple-500 transition"
+                                >
+                                    Resume
+                                </button>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                )}
+
             </div>
+
         </nav>
     );
 };

@@ -94,19 +94,18 @@ export default function Skills() {
     return (
         <section
             id="skills"
-            className="relative py-32 overflow-hidden"
+            className="relative overflow-hidden py-10 sm:py-16 lg:py-20"
         >
             {/* Background Glow */}
 
             <div className="absolute inset-0 -z-10">
 
-                <div className="absolute left-20 top-20 w-80 h-80 rounded-full bg-blue-500/10 blur-[150px]" />
+                <div className="absolute left-0 top-10 w-52 h-52 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-blue-500/10 blur-[80px] lg:blur-[150px]" />
 
-                <div className="absolute right-20 bottom-20 w-80 h-80 rounded-full bg-purple-500/10 blur-[150px]" />
-
+                <div className="absolute right-0 bottom-10 w-52 h-52 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-purple-500/10 blur-[80px] lg:blur-[150px]" />
             </div>
 
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
                 {/* Heading */}
 
@@ -115,20 +114,20 @@ export default function Skills() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: .8 }}
-                    className="text-center mb-20"
+                    className="text-center mb-12 sm:mb-16 lg:mb-20"
                 >
 
-                    <p className="uppercase tracking-[6px] text-blue-400 mb-4">
+                    <p className="uppercase tracking-[3px] sm:tracking-[5px] lg:tracking-[6px] text-blue-400 mb-3">
                         Technical Expertise
                     </p>
 
-                    <h2 className="text-5xl font-bold">
+                    <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold">
 
                         My <span className="text-blue-400">Skills</span>
 
                     </h2>
 
-                    <p className="text-gray-400 mt-6 max-w-2xl mx-auto leading-8">
+                    <p className="text-gray-400 mt-6 max-w-2xl mx-auto leading-8 text-sm sm:text-base">
                         Technologies I use to build scalable backend applications,
                         modern web interfaces, and production-ready software.
                     </p>
@@ -137,7 +136,7 @@ export default function Skills() {
 
                 {/* Cards */}
 
-                <div className="grid lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
 
                     {skills.map((skill, index) => (
 
@@ -153,32 +152,48 @@ export default function Skills() {
                             whileHover={{
                                 y: -10,
                             }}
-                            className="group rounded-3xl border border-white/10 bg-white/4 backdrop-blur-xl p-8 transition-all duration-500 hover:border-blue-500 hover:shadow-[0_0_40px_rgba(59,130,246,.25)]"
-                        >
+                            className="
+group
+rounded-2xl
+lg:rounded-3xl
+border
+border-white/10
+bg-white/4
+backdrop-blur-xl
+p-5
+sm:p-6
+lg:p-8
+transition-all
+duration-500
+hover:-translate-y-2
+hover:scale-[1.02]
+hover:border-blue-500
+hover:shadow-[0_0_40px_rgba(59,130,246,.25)]
+"                        >
 
                             {/* Header */}
 
-                            <div className="flex justify-between items-center">
+                            <div className="flex justify-between items-start">
 
                                 <div>
 
-                                    <div className="text-5xl text-blue-400 group-hover:rotate-12 transition duration-500">
+                                    <div className="text-2xl sm:text-4xl lg:text-5xl text-blue-400 group-hover:rotate-12 transition duration-500">
                                         {skill.icon}
                                     </div>
 
-                                    <h3 className="text-2xl font-bold mt-5">
+                                    <h3 className="text-lg sm:text-xl lg:text-2xl  font-bold mt-5">
                                         {skill.title}
                                     </h3>
 
                                 </div>
 
-                                <div className="text-4xl font-bold text-blue-400">
+                                <div className="text-xl sm:text-3xl lg:text-4xl font-bold text-blue-400 shrink-0">
                                     {skill.percentage}%
                                 </div>
 
                             </div>
 
-                            <p className="text-gray-400 mt-6 leading-7">
+                            <p className="text-gray-400 mt-4 leading-6 text-sm sm:text-base">
                                 {skill.description}
                             </p>
 
@@ -186,7 +201,7 @@ export default function Skills() {
 
                             <div className="mt-8">
 
-                                <div className="w-full h-3 rounded-full bg-white/10 overflow-hidden">
+                                <div className="w-full h-2 sm:h-3 rounded-full bg-white/10 overflow-hidden">
 
                                     <motion.div
                                         initial={{ width: 0 }}
@@ -212,7 +227,7 @@ export default function Skills() {
 
                                     <span
                                         key={item}
-                                        className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm hover:border-blue-500 hover:bg-blue-500/10 transition"
+                                        className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/10 bg-white/5 text-xs sm:text-sm hover:border-blue-500 hover:bg-blue-500/10 transition"
                                     >
                                         {item}
                                     </span>
@@ -229,7 +244,7 @@ export default function Skills() {
 
                 {/* Bottom Marquee */}
 
-                <div className="relative mt-24 overflow-hidden border-y border-white/10 py-6">
+                <div className="relative mt-12 sm:mt-16 lg:mt-24 overflow-hidden border-y border-white/10 py-6">
 
                     <motion.div
                         animate={{
@@ -237,7 +252,7 @@ export default function Skills() {
                         }}
                         transition={{
                             repeat: Infinity,
-                            duration: 18,
+                            duration: 25,
                             ease: "linear",
                         }}
                         className="flex whitespace-nowrap"
@@ -247,7 +262,7 @@ export default function Skills() {
 
                             <div
                                 key={index}
-                                className="mx-8 flex items-center gap-3 text-gray-300 text-lg"
+                                className="mx-4 sm:mx-6 lg:mx-8 flex items-center gap-2 sm:gap-3 text-gray-300 text-sm sm:text-base lg:text-lg"
                             >
                                 <FaGitAlt className="text-blue-400" />
                                 {item}
